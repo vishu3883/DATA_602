@@ -24,3 +24,10 @@ STREET: Offenses are recorded in which street of that are area the offense took 
 Lat: Latitude of that particular location.
 Long: Longitude of that particular location.
 Location: Which consists of both longitude and latitude coordinates of the location.
+
+Data Cleanup
+This dataset is having some non significant columns which have no information in it and neither required for the future analysis part. So, we are removing those columns.
+We removed OFFENSE_CODE_GROUP because the whole column consists of null values it will not be useful for the future analysis parts.
+'Lat', 'Long', 'Location' columns are not going to give any useful analysis according to the prediction which I needed.
+UCR_PART this whole column consists of the null values.
+
