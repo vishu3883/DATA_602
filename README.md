@@ -1,4 +1,5 @@
 CRIME INCIDENT REPORTS
+
 Officers of the Boston Police Department (BPD) prepare crime incident reports to keep track of the early circumstances surrounding an occurrence. consisting of a smaller number of fields aimed for gathering information on an incident's specifics, such as when and where it took place.
 Objective - I want to be able to anticipate when crimes will take place based on the kind of offense committed and the time of day.
 
@@ -30,4 +31,19 @@ This dataset is having some non significant columns which have no information in
 We removed OFFENSE_CODE_GROUP because the whole column consists of null values it will not be useful for the future analysis parts.
 'Lat', 'Long', 'Location' columns are not going to give any useful analysis according to the prediction which I needed.
 UCR_PART this whole column consists of the null values.
+
+
+EDA
+
+Now coming to the EDA part we are peforming distribution on the columns which are having some intresting characteristics shown up.
+Earlier in the OFFENSE CODE distribution Graph we had seen a hike in one of the code and now with the help of OFFENSE DESCRIPTION graph we can name them and have a better understanding of the graph.
+'Investigate Personal' is shown the highest Offense ever recorded according to the data.
+
+Here we can get that which Districts have more number of offenses took place and 'B2' has the highest number when compared with other Districts
+Most of the offenses are recorded without shooting and only few are recorded with shooting and here '1' indicates Yes and '0' as No for the shooting.
+Here Months are taken according to the numbers and more number of offenses are were recorded in the months of '8, 10' and least number of Offenses are taken in the month of '2'.
+As compared with the mean and median in the above analysis we get that Box plot shows some diffrent picture we are taking 'OFFENSE DESCRIPTION' & 'HOUR' as the two main features and contructing boxplot for them.
+Analysis shows that the mostly the offenses are taking at 10 & 15 hours and only few offenses are taken place in irregular times.
+
+
 
