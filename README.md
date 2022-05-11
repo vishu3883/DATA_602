@@ -69,11 +69,73 @@ Longitude of that location.
 
 •	Now coming to the EDA part, we are performing distribution on the columns which are having some interesting characteristics shown up.
 
-•	Earlier in the OFFENSE CODE distribution Graph we had seen a hike in one of the code and now with the help of OFFENSE DESCRIPTION graph we can name them and have a better understanding of the graph.
+•	HOUR vs OFFENSE DESCRIPTION
+Most of the offenses are took place in the '0' & '17' hours in the midnight and Evening respectively..
 
-•	'Investigate Personal' is shown the highest Offense ever recorded according to the data.
+•	DISTRICT vs OFFENSE DESCRIPTION
+Conidering the 'DISTRICT' & 'OFFENSE_DESCRIPTION' in the dataset, most of the offenses are took place in the 'B2' District..
 
-•	Here we can get that which Districts have more number of offenses took place and 'B2' has the highest number when compared with other Districts Most of the offenses are recorded without shooting and only few are recorded with shooting and here '1' indicates Yes and '0' as No for the shooting. Here Months are taken according to the numbers and more number of offenses are were recorded in the months of '8, 10' and least number of Offenses are taken in the month of '2'.
+•	SHOOTING vs HOUR
+Most of the shootings are took place in the 12:00 AM midnight.
+To be precise at '0' Hours in the morning.
+Shootings are less involved in the offenses and most of them were handeled without shooting.
 
-•	As compared with the mean and median in the above analysis we get that Box plot shows some different picture we are taking 'OFFENSE DESCRIPTION' & 'HOUR' as the two main features and constructing boxplot for them. Analysis shows that the mostly the offenses are taking at 10 & 15 hours and only few offenses are taken place in irregular times.
+### Modeling
 
+.    	Categorizing the Target Variable into three classes to ease the regression models.
+
+.       As mentioned Below a day is divided into three classes which are 'DAY', 'NIGHT' & 'MIDNIGHT'.
+
+.       The main reason to consider 'NIGHT' & 'MIDNIGHT' are most of the crimes are happening in the time of 23 to 4 in the morning.
+
+
+### Pipeline Construction & Feature Engineering
+.       I've taken the classified columns and the numeric columns and turned them into pipelines one after another.
+.       I utilized the 'median' imputing approach for numerical pipelines and the'most_frequent' method for categorical pipelines.
+.       I've put them to use in the creation of a processing pipeline.
+
+#### Splitting the Dataset
+.      	By splitting the datasets into two categories testing & Training.
+.      	Considering the 'HOUR' Column in the dataset, We have created a new column which is 'Time of day'.
+
+#### Logistic Regression
+
+.     	Constructing the pipeline for this particular model.
+.      Using l2, None penalty methods in the params. Because L2 penalty function uses the sum of the squares of the parameters and Ridge Regression encourages this sum to be small
+
+.      Grid search gives us the ability to search over specified values for each of the parameters listed above. We do this by passing GridSearchCV a dictionary with parameter names as keys, and lists of values to try as arguments for those parameters.
+
+.      validation score is 53.90% & Test score is 53.81%
+By performing hyperparameter searches, we will get the best values where the validations score are good to taken and implemented in secondary search results on the regression model.
+
+.      After this we will get the classification reports of both Testing & training.
+.      by performing ROC & area under curve on the regression model we got around 0.61 of AUC.
+
+#### Decision Tree
+
+.      Constructing the pipeline for this particular model.
+
+.      Using custom model__max_depth and model__min_sample_split values, we will find the right parameters for better validation scores
+
+.      Grid search gives us the ability to search over specified values for each of the parameters listed above. We do this by passing GridSearchCV a dictionary with parameter names as keys, and lists of values to try as arguments for those parameters.
+
+.      validation score is 54.24% & Test score is 54.23%
+By performing hyperparameter searches, we will get the best values where the validations score are good to taken and implemented in secondary search results on the regression model.
+
+.      After this we will get the classification reports of both Testing & training. Accuracy is 65%
+
+.      By performing ROC & area under curve on the regression model we got around 0.51 of AUC.
+
+#### KNN Classifier
+
+.      Constructing the pipeline for this particular model.
+
+.      This model seems to be best for classification when hyperparameter number of neighbors are 60The accuracy of KNN classifier is 0.6480306727082608
+
+.      Even after taking the closet values compared with the above value we are still getting the same value in params.
+
+.      By performing ROC & area under curve on the regression model we got around 0.59 of AUC.
+
+#### Conclusion
+
+.      Considering the three machine learning models, the Decision tree model shows the highest accuracy even though compared with the remaining models they are similar in their accuracy. Accuracy can be increased by using better modeling techniques.
